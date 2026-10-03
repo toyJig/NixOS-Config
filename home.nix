@@ -9,7 +9,15 @@
         "Xft.dpi" = 800;
     };
 
+
+    imports = [
+        # Explicitly import the nix-flatpak home manager module here
+        inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    ];
+
     home.packages = with pkgs; [
+        nil
+
         #zipping
         zip
         unzip
@@ -33,7 +41,12 @@
         #programs
         obs-studio
         discord
-   ];
+        inputs.zen-browser.packages."${pkgs.system}".default
+
+    ];
+    services.flatpak.packages = [
+        "flathub:org.vinegarhq.Sober"
+    ];
 
     programs.git = {
         enable = true;
@@ -57,4 +70,5 @@
             vim-surround
         ];
     };
+
 }

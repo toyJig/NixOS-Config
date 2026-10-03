@@ -6,9 +6,11 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
   };
 
-  outputs = { self, nixpkgs, zen-browser, home-manager, ... } @ inputs: {
+  outputs = { self, nixpkgs, zen-browser, home-manager, nix-flatpak, ... } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -19,9 +21,11 @@
         home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.toyjig = import ./home.nix;
         }
+
+        nix-flatpak.nixosModules.nix-flatpak
       ];
     };
   };

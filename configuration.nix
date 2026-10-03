@@ -1,10 +1,7 @@
-{ config, pkgs, inputs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{ config, pkgs, inputs, ... }: {
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -15,10 +12,6 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager = {
@@ -74,7 +67,7 @@
   # services.libinput.enable = true;
 
   # Enable backlight control support
-#   hardware.acpilight.enable = true;
+  boot.kernelParams = [ "acpi_backlight=native" ];
 
   # Set password with ‘passwd’.
   users.users."toyjig" = {
@@ -93,12 +86,12 @@
   # https://search.nixos.org/
   environment.systemPackages = with pkgs; [
     wget
-    inputs.zen-browser.packages."${pkgs.system}".default
   ];
 
   #Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  #Enable flatpak
+  services.flatpak.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
