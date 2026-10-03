@@ -73,6 +73,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  # Enable backlight control support
+#   hardware.acpilight.enable = true;
+
   # Set password with ‘passwd’.
   users.users."toyjig" = {
     isNormalUser = true;
@@ -89,13 +92,7 @@
 
   # https://search.nixos.org/
   environment.systemPackages = with pkgs; [
-    vim
-    pkgs.vscode-with-extensions
-    pkgs.neovim
     wget
-    python3
-
-    pkgs.discord
     inputs.zen-browser.packages."${pkgs.system}".default
   ];
 

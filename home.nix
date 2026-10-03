@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
     home.stateVersion = "26.05";
     home.username = "toyjig";
@@ -19,8 +19,21 @@
         #common util
         mtr
 
-        glow #markdown previewer in terminal
-    ];
+        #markdown previewer in terminal
+        glow
+
+        #programming tools
+        cmake
+        python3
+        gcc
+        vscode-with-extensions
+
+
+
+        #programs
+        obs-studio
+        discord
+   ];
 
     programs.git = {
         enable = true;
@@ -30,5 +43,18 @@
 
     programs.bash = {
         enableCompletion = true;
+    };
+
+    programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+        plugins = with pkgs.vimPlugins; [
+            friendly-snippets
+            mini-nvim
+            netrw-nvim
+            nvim-lspconfig
+            render-markdown-nvim
+            vim-surround
+        ];
     };
 }
