@@ -13,8 +13,6 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.wireless.iwd.enable = false;
-
-  # Enable networking
   networking.networkmanager = {
     enable = true;
 
@@ -93,6 +91,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   #Enable flatpak
   services.flatpak.enable = true;
+
+  #Auto prev generation cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "weekly"; # or a specific time like "*-*-* 03:00:00"
+    options = "--delete-older-than +8"; # deletes generations older than 14 days
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
