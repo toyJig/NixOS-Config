@@ -3,11 +3,7 @@
         users.users."toyjig" = {
             isNormalUser = true;
             description = "ME ME ME ME ME";
-            extraGroups = [
-                "networkmanager"
-                "wheel"
-                "users"
-            ];
+            extraGroups = [ "wheel" ];
             uid = 1000;
         };
     };
@@ -15,13 +11,17 @@
         home = {
             username = "toyjig";
             homeDirectory = "/home/toyjig";
-            stateVersion = "25.11";
+            stateVersion = "26.05";
         };
 
         imports = [
-            # Explicitly import the nix-flatpak home manager module here
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
             self.modules.homeManager.zen-browser
+            self.modules.homeManager.nvim
+            self.modules.homeManager.sober
+            self.modules.homeManager.kitty
+            self.modules.homeManager.starship
+            self.modules.homeManager.git
         ];
 
         home.packages = with pkgs; [
@@ -41,49 +41,27 @@
 
             #dev tools
             cmake
-            python3
             gcc
             vscode-with-extensions
 
+            #larping
+            fastfetch
 
             #programs
             obs-studio
             discord
-            #installed by zen-browser.nix?
-#             inputs.zen-browser.packages."${pkgs.system}".default
-
+            kicad
+            #zen installed by zen-browser.nix
         ];
 
         services.flatpak = {
             enable = true;
-            packages = [
-                "flathub:org.vinegarhq.Sober"
-            ];
-        };
-
-        programs.git = {
-            enable = true;
-            settings.user = {
-                user = "toyJig";
-                email = "rainbowtoyjig@gmail.com";
-            };
         };
 
         programs.bash = {
+            enable = true;
             enableCompletion = true;
         };
 
-        programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            plugins = with pkgs.vimPlugins; [
-                friendly-snippets
-                mini-nvim
-                netrw-nvim
-                nvim-lspconfig
-                render-markdown-nvim
-                vim-surround
-            ];
-        };
     };
 }
