@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.base = {modulesPath, ...}:
+  flake.modules.nixos.base = {modulesPath, pkgs, config, lib, ...}:
   {
     nix.extraOptions = "experimental-features = nix-command flakes";
 
@@ -7,15 +7,13 @@
     boot = {
       loader.efi.canTouchEfiVariables = true;
       loader.systemd-boot.enable = true;
-      tmp.useTmpfs = true;
+      tmp.useTmpfs = false; # true
 #       kernelPackages = pkgs.linuxPackages_latest;
     };
 
     hardware.bluetooth.enable = true;
 
     networking = {
-#       wireless.enable = true;
-#       wireless.iwd.enable = false;
       networkmanager = {
         enable = true;
         wifi = {
@@ -82,7 +80,73 @@
     nix.gc = {
       automatic = true;
       dates = "weekly"; # or a specific time like "*-*-* 03:00:00"
-      options = "--delete-older-than +8"; # leaves only 3 latest generations
+      options = "--delete-older-than 7d";
+    };
+
+    ###### NVIDIA GPU CONTROL ENABLING ######
+    # Enable OpenGL
+    hardware.graphics.enable = true;
+
+    # Load nvidia driver for Xorg and Wayland
+    services.xserver.videoDrivers = [
+      "amdgpu"
+      "nvidia"
+    ];
+
+    hardware.nvidia = {
+
+      # Modesetting is required.
+      modesetting.enable = true;
+
+      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+      # Enable this if you have graphical corruption issues or application crashes after waking
+      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
+      # of just the bare essentials.
+      powerManagement.enable = true; # false
+
+      # Fine-grained power management. Turns off GPU when not in use.
+      # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+      powerManagement.finegrained = true;
+
+      # Use the NVidia open source kernel module (not to be confused with the
+      # independent third-party "nouveau" open source driver).
+      # Support is limited to the Turing and later architectures. Full list of
+      # supported GPUs is at:
+      # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
+      # Only available from driver 515.43.04+
+      open = true;
+
+      # Enable the Nvidia settings menu,
+      # accessible via `nvidia-settings`.
+      nvidiaSettings = true;
+
+      prime = {
+        nvidiaBusId = "PCI:1:0:0";
+        amdgpuBusId = "PCI:65:0:0";
+
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      };
+
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
+
+    #fix shutdown on lid open
+    services = {
+      logind.settings.Login = {
+        KillUserProcesses = true;
+        LidSwitchHandle = "suspend";
+        LidSwitchExternalPowerHandle = "suspend";
+      };
+    };
+    systemd = {
+      sleep.settings.Sleep = {
+        AllowHibernation = false;
+        AllowSuspendThenHibernate = false;
+      };
     };
 
     system.stateVersion = "26.05"; # DO NOT CHANGE

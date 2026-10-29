@@ -18,13 +18,9 @@
             nixd
 
             git
-            emacs-with-packages
 
-            #customization
-            polybar
-            pandoc
+            noctalia
         ];
-        programs.zsh.enable = true;
 
         # Install firefox
         programs.firefox.enable = true;
