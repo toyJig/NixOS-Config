@@ -3,7 +3,7 @@
         users.users."toyjig" = {
             isNormalUser = true;
             description = "ME ME ME ME ME";
-            extraGroups = [ "wheel" ];
+            extraGroups = [ "wheel" "networkmanager" "video"];
             uid = 1000;
         };
     };
@@ -16,13 +16,19 @@
 
         imports = [
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
-            self.modules.homeManager.zen-browser
-            self.modules.homeManager.nvim
-            self.modules.homeManager.sober
-            self.modules.homeManager.kitty
-            self.modules.homeManager.starship
-            self.modules.homeManager.git
-        ];
+            inputs.noctalia.homeModules.default
+        ] ++ (with self.modules.homeManager; [
+            zen-browser
+            sober
+
+            kitty
+            starship
+            nvim
+
+            git
+
+            noctalia
+        ]);
 
         home.packages = with pkgs; [
             nil
@@ -54,9 +60,7 @@
             #zen installed by zen-browser.nix
         ];
 
-        services.flatpak = {
-            enable = true;
-        };
+        services.flatpak.enable = true;
 
         programs.bash = {
             enable = true;

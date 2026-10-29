@@ -20,6 +20,7 @@
             };
             kernelModules = [ "kvm-amd" ];
             extraModulePackages = [ ];
+#             blacklistedKernelModules = [ "nouveau" ];
         };
 
         networking.hostName = "home-desktop";
@@ -46,7 +47,8 @@
                     overlays = [self.overlays.default];
                 };
             }
+
+            inputs.niri.nixosModules.niri #niri
         ];
     };
-
 }

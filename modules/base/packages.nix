@@ -19,7 +19,7 @@
 
             git
 
-            noctalia
+            xwayland-satellite
         ];
 
         # Install firefox
