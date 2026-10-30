@@ -3,7 +3,7 @@
         users.users."toyjig" = {
             isNormalUser = true;
             description = "ME ME ME ME ME";
-            extraGroups = [ "wheel" "networkmanager" "video"];
+            extraGroups = [ "wheel" "networkmanager" "video" ];
             uid = 1000;
         };
     };
@@ -28,6 +28,7 @@
             git
 
             noctalia
+            niri
         ]);
 
         home.packages = with pkgs; [
@@ -41,6 +42,7 @@
 
             #common util
             mtr
+            findutils
 
             #markdown previewer in terminal
             glow
@@ -57,15 +59,9 @@
             obs-studio
             discord
             kicad
-            #zen installed by zen-browser.nix
         ];
 
         services.flatpak.enable = true;
-
-        programs.bash = {
-            enable = true;
-            enableCompletion = true;
-        };
 
     };
 }

@@ -13,6 +13,7 @@
                 selection_background = "#28344a";
                 selection_foreground = "#a9b1d6";
                 cursor = "#c0caf5";
+                cursor_trail = 1;
             };
         };
     };

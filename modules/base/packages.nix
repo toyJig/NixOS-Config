@@ -13,16 +13,13 @@
             wget
 
             bash-language-server
-            clang-tools
             cmake-language-server
+            clang-tools
             nixd
 
             git
-
-            xwayland-satellite
         ];
 
-        # Install firefox
         programs.firefox.enable = true;
     };
 }

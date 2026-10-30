@@ -1,0 +1,15 @@
+input {
+	touchpad {
+		tap
+		drag false
+		natural-scroll
+	}
+
+	mouse {
+		accel-profile "flat"
+	}
+}
+
+hotkey-overlay {
+    skip-at-startup
+}

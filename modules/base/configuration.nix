@@ -25,10 +25,6 @@
 
     time.timeZone = "America/New_York";
 
-    #Enable Niri
-    programs.niri.enable = true;
-    services.displayManager.defaultSession = "niri";
-
     # Enable KDE Plasma 6 Environment.
     services = {
       pipewire = {
@@ -90,6 +86,13 @@
       dates = "weekly"; # or a specific time like "*-*-* 03:00:00"
       options = "--delete-older-than 7d";
     };
+    nix.settings.auto-optimise-store = true;
+    boot.loader.grub.configurationLimit = 10;
+
+    boot.extraModprobeConfig = ''
+      options asus_wmi fnlock_default=N
+    '';
+
 
     ###### NVIDIA GPU CONTROL ENABLING ######
     # Enable OpenGL

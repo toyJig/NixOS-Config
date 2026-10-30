@@ -1,0 +1,21 @@
+[wallpaper]
+enabled             = true
+fill_mode           = "fit"    # center | crop | fit | stretch | repeat | span
+transition          = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb", "vortex", "pixel", "diamond", "golden", "melt"]
+                                # array of effects picked at random each transition
+                                # omit to use all effects
+transition_duration = 1500      # milliseconds
+edge_smoothness     = 0.3       # 0.0 – 1.0
+
+# Directory browsed by the wallpaper picker panel. Leave empty to use the
+# standard XDG Pictures directory (from `XDG_PICTURES_DIR` or `user-dirs.dirs`).
+directory           = "./appearance"
+# Theme-aware directories (used when theme mode is Light/Dark; Auto falls back to directory)
+directory_light     = "./appearance/light_wallpapers"
+directory_dark      = "./appearance/dark_wallpapers"
+
+[wallpaper.default]
+path = "./appearance/dark_wallpapers/deltarune1.jpg"
+
+[widget.clock]
+format = "{:%-I:%M %p}"

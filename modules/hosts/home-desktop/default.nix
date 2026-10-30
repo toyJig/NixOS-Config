@@ -1,7 +1,5 @@
-{ self, inputs, ... }:
-{
-    flake.modules.nixos.home-desktop = {pkgs, config, ...}:
-    {
+{ self, inputs, ... }:{
+    flake.modules.nixos.home-desktop = {pkgs, ...} : {
         imports = [
             ../../../hardware-configuration.nix
             self.modules.nixos.base
@@ -9,6 +7,12 @@
         ];
 
         nixpkgs.hostPlatform = "x86_64-linux";
+        nixpkgs.overlays = [ #niri
+            (final: prev: {
+                niri = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.niri;
+            })
+        ];
+
 
         boot = { # look into
             initrd = {
@@ -37,7 +41,6 @@
                     users.toyjig = self.modules.homeManager.toyjig;
                 };
             }
-
             {
                 nixpkgs = {
                     config = {
@@ -48,7 +51,6 @@
                 };
             }
 
-            inputs.niri.nixosModules.niri #niri
         ];
     };
 }
