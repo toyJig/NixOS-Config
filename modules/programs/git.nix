@@ -6,6 +6,9 @@
                 user = "toyJig";
                 email = "rainbowtoyjig@gmail.com";
             };
+            settings = {
+                core.editor = "vim";
+            };
         };
     };
 }

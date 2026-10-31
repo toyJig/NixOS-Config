@@ -14,6 +14,14 @@
             stateVersion = "26.05";
         };
 
+        systemd.user.services.noctalia = {
+            Service = {
+                Environment = [
+                    "MALLOC_CONF=background_thread:false"
+                ];
+            };
+        };
+
         imports = [
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
             inputs.noctalia.homeModules.default
@@ -62,6 +70,7 @@
             obs-studio
             discord
             kicad
+            kdePackages.kdenlive
         ];
 
         services.flatpak.enable = true;

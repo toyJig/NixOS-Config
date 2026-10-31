@@ -5,9 +5,14 @@ location = "https://github.com/noctalia-dev/official-plugins"
 enabled = true
 
 [plugins]
-enabled = ["noctalia/mpvpaper"]
+enabled = ["noctalia/mpvpaper", "noctalia/wallpaper_depth"]
 auto_update = "all"
 
-[plugins_settings."noctalia/mpvpaper"]
-video_directory = "/home/toyjig/Pictures/Wallpapers"
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "~/Pictures/Wallpapers"
 mute = true
+run_as_systemd = true
+extract_last_frame = false
+mpv_options = "--hwdec=vaapi --loop=inf --override-display-fps=45"
+
+[plugin_settings."noctalia/wallpaper_depth"]

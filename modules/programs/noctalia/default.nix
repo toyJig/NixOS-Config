@@ -6,15 +6,22 @@
         home.packages = with pkgs; [
             mpvpaper
             mpv
-
+            socat
         ];
 
         programs.noctalia = {
             enable = true;
             systemd.enable = true;
             settings = (builtins.fromTOML (builtins.readFile ./setup/config.toml))
-                    // (builtins.fromTOML (builtins.readFile ./setup/appearance.toml))
-                    // (builtins.fromTOML (builtins.readFile ./setup/plugins.toml));
+                    // (builtins.fromTOML (builtins.readFile ./setup/plugins.toml))
+                    // (builtins.fromTOML (builtins.readFile ./setup/appearance.toml));
+        };
+
+        #prevent safe closes during rebuilds from cash dumping
+        systemd.user.services.noctalia = {
+            serviceConfig = {
+                SuccessExitStatus = [ 11 ]; # 11 is SIGSEGV
+            };
         };
         xdg.userDirs = {
             enable = true;

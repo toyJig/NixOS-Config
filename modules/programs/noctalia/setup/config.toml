@@ -1,5 +1,4 @@
-[widget.clock]
-format = "{:%-I:%M %p}"
-
 [launcher.providers]
-math = false            #prevent zen crash?
+math = false
+
+
