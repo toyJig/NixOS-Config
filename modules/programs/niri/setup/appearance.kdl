@@ -1,8 +1,37 @@
 layout {
-    gaps 5
+    gaps 8
 
     focus-ring {
         width 2
         active-color "#D0F0C0"
     }
+    background-color "transparent"
 }
+
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}
+layer-rule {
+    match namespace="(?i)mpvpaper"
+    place-within-backdrop true
+}
+
+window-rule {
+    match app-id="kitty"
+    draw-border-with-background false
+}
+window-rule {
+    match app-id=r#"^zen(-beta)?$"#
+    draw-border-with-background false
+}
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+overview {
+    workspace-shadow { off; }
+}
+
+prefer-no-csd

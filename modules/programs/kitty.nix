@@ -14,6 +14,8 @@
                 selection_foreground = "#a9b1d6";
                 cursor = "#c0caf5";
                 cursor_trail = 1;
+                cursor_trail_decay = "0.05 0.1";
+                hide_window_decorations = "yes";
             };
         };
     };

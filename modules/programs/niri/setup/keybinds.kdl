@@ -5,100 +5,53 @@ binds {
     }
 
     // Utility
-    Mod+Shift+S {
-        screenshot show-pointer=false
-    }
-    Mod+T {
-        spawn "kitty"
-    }
-    Mod+Y {
-        spawn "dolphin"
-    }
-    Mod+Shift+Comma {
-        spawn-sh "noctalia" "msg" "settings-toggle";
-    }
+    Mod+Shift+S { screenshot show-pointer=false; }
+    Mod+T { spawn "kitty"; }
+    Mod+Return { spawn "kitty"; }
+    Mod+Y { spawn "dolphin"; }
+    Mod+Shift+Comma { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Workspace Navigation
-    Mod+Up {
-        focus-workspace-up
-    }
-    Mod+Down {
-        focus-workspace-down
-    }
-    Mod+Shift+Up {
-        move-window-to-workspace-up
-    }
-    Mod+Shift+Down {
-        move-window-to-workspace-down
-    }
+    Mod+Up { focus-workspace-up; }
+    Mod+Down { focus-workspace-down; }
+    Mod+Shift+Up { move-window-to-workspace-up; }
+    Mod+Shift+Down { move-window-to-workspace-down; }
 
-    Mod+Right {
-        focus-column-right
-    }
-    Mod+Left {
-        focus-column-left
-    }
-    Mod+Shift+Left {
-        move-column-left
-    }
-    Mod+Shift+Right {
-        move-column-right
-    }
+    Mod+Right { focus-column-right; }
+    Mod+Left { focus-column-left; }
+    Mod+Shift+Left { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
 
-    Mod+Tab {
-        toggle-overview
-    }
+    Mod+Tab { toggle-overview; }
 
-    Mod+O {
-        toggle-window-floating
-    }
-    Mod+P {
-        switch-focus-between-floating-and-tiling
-    }
+    Mod+Q { close-window; }
+    Mod+O { toggle-window-floating; }
+    Mod+P { switch-focus-between-floating-and-tiling; }
+
+    //Mouse controls
+    Mod+WheelScrollRight { focus-column-right; }
+    Mod+WheelScrollLeft { focus-column-left; }
+    Mod+Shift+WheelScrollRight { move-column-right; }
+    Mod+Shift+WheelScrollLeft { move-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-window-to-workspace-down; }
+    Mod+Ctrl+WheelScrollLeft { move-window-to-workspace-up; }
 
     // Workspace Selection
-    Mod+1 {
-        focus-workspace 1
-    }
-    Mod+2 {
-        focus-workspace 2
-    }
-    Mod+3 {
-        focus-workspace 3
-    }
-    Mod+4 {
-        focus-workspace 4
-    }
-    Mod+5 {
-        focus-workspace 5
-    }
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
 
     // Window & Column Controls
-    Mod+R {
-        switch-preset-column-width
-    }
-    Mod+F {
-        maximize-column
-    }
-
-    // Critical Default Binds
-    Mod+Shift+Slash {
-        show-hotkey-overlay
-    }
-    Mod+Q {
-        close-window
-    }
-    Mod+Return {
-        spawn "foot"
-    }
+    Mod+R { switch-preset-column-width; }
+    Mod+F { maximize-column; }
 
     // Audio
-    XF86AudioRaiseVolume {
-        spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"
-    }
-    XF86AudioLowerVolume {
-        spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"
-    }
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
 
     // Brightness
     XF86MonBrightnessUp allow-when-locked=true {

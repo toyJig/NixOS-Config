@@ -20,6 +20,13 @@
             git
         ];
 
+        #fix vscode with extensions (gradle)
+        programs.nix-ld.enable = true;
+        programs.nix-ld.libraries = with pkgs; [
+            stdenv.cc.cc
+            zlib
+        ];
+
         programs.firefox.enable = true;
     };
 }

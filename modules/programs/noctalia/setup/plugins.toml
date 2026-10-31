@@ -1,0 +1,13 @@
+[[plugins.source]]
+name = "official"
+kind = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+enabled = true
+
+[plugins]
+enabled = ["noctalia/mpvpaper"]
+auto_update = "all"
+
+[plugins_settings."noctalia/mpvpaper"]
+video_directory = "/home/toyjig/Pictures/Wallpapers"
+mute = true

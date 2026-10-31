@@ -1,5 +1,5 @@
 { ... } : {
-    flake.modules.nixos.home-desktop = {pkgs, ...}: {
+    flake.modules.nixos.home-desktop = { pkgs, ... }: {
         environment.systemPackages = with pkgs; [xwayland-satellite];
         programs.niri.enable = true;
         #Enable Niri

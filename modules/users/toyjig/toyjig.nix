@@ -25,6 +25,8 @@
             starship
             nvim
 
+            vscode
+
             git
 
             noctalia
@@ -50,7 +52,8 @@
             #dev tools
             cmake
             gcc
-            vscode-with-extensions
+            jdk
+            gradle
 
             #larping
             fastfetch
