@@ -25,13 +25,13 @@
 
     time.timeZone = "America/New_York";
 
-    # Enable KDE Plasma 6 Environment.
     services = {
       pipewire = {
         enable = true;
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+        wireplumber.enable = true;
       };
       xserver = {
         enable = true;
@@ -42,6 +42,7 @@
         };
 
       };
+      # Enable KDE Plasma 6 Environment.
       displayManager.sddm.enable = true;
       desktopManager.plasma6.enable = true;
 

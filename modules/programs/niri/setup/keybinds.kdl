@@ -39,16 +39,22 @@ binds {
     Mod+Tab { toggle-overview; }
 
     Mod+W { close-window; }
+    Mod+Q { close-window; }
     Mod+O { toggle-window-floating; }
     Mod+P { switch-focus-between-floating-and-tiling; }
 
     //Mouse controls
     Mod+WheelScrollUp cooldown-ms=100 { focus-column-left; }
     Mod+WheelScrollDown cooldown-ms=100 { focus-column-right; }
+
+    Mod+Ctrl+WheelScrollUp cooldown-ms=100 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=100 { focus-workspace-down; }
+
     Mod+Shift+WheelScrollUp cooldown-ms=100 { move-column-left; }
     Mod+Shift+WheelScrollDown cooldown-ms=100 { move-column-right; }
-    Mod+Ctrl+WheelScrollUp cooldown-ms=100 { move-window-to-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=100 { move-window-to-workspace-down; }
+
+    Mod+Shift+Ctrl+WheelScrollUp cooldown-ms=100 { move-window-to-workspace-up; }
+    Mod+Shift+Ctrl+WheelScrollDown cooldown-ms=100 { move-window-to-workspace-down; }
 
     // Workspace Selection
     Mod+1 { focus-workspace 1; }

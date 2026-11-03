@@ -14,6 +14,7 @@
             stateVersion = "26.05";
         };
 
+        # allow noctalia to find system files like kate
         systemd.user.services.noctalia = {
             Service = {
                 Environment = [
@@ -71,6 +72,7 @@
             discord
             kicad
             kdePackages.kdenlive
+            spotify
         ];
 
         services.flatpak.enable = true;
