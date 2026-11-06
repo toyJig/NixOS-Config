@@ -17,15 +17,14 @@
             render-markdown-nvim
 
             nvim-treesitter.withAllGrammars
-
         ];
 
         extraPackages = with pkgs; [
             lua-language-server
-            nil
+            nixd
+            nixfmt-rfc-style
             ripgrep
             fd
-            gcc
         ];
     };
 

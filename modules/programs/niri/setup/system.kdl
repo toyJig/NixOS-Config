@@ -13,3 +13,11 @@ input {
 hotkey-overlay {
     skip-at-startup
 }
+
+clipboard {
+    disable-primary
+}
+
+screenshot-path "~/Downloads/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+spawn-at-startup "discord"

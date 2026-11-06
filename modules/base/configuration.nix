@@ -72,7 +72,10 @@
     };
 
     # Enable backlight control support
-    boot.kernelParams = [ "acpi_backlight=native" ];
+    boot.kernelParams = [
+      "acpi_backlight=native"
+#       "mem_sleep_default=s2idle"
+    ];
 
     nixpkgs.config.allowUnfree = true;
 
@@ -90,11 +93,6 @@
     nix.settings.auto-optimise-store = true;
     boot.loader.grub.configurationLimit = 10;
 
-    boot.extraModprobeConfig = ''
-      options asus_wmi fnlock_default=N
-    '';
-
-
     ###### NVIDIA GPU CONTROL ENABLING ######
     # Enable OpenGL
     hardware.graphics = {
@@ -106,8 +104,6 @@
         libva               # Video acceleration interface
       ];
     };
-    #Enable amd gpu option in Davinci
-#     hardware.amdgpu.opencl.enable = true;
 
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = [
@@ -155,7 +151,7 @@
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
-
+#
     #fix shutdown on lid open
     services = {
       logind.settings.Login = {

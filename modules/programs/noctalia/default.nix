@@ -17,12 +17,6 @@
                     // (builtins.fromTOML (builtins.readFile ./setup/appearance.toml));
         };
 
-        #prevent safe closes during rebuilds from cash dumping
-        systemd.user.services.noctalia = {
-            serviceConfig = {
-                SuccessExitStatus = [ 11 ]; # 11 is SIGSEGV
-            };
-        };
         xdg.userDirs = {
             enable = true;
             createDirectories = true;

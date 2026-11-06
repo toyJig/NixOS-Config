@@ -20,11 +20,21 @@
             git
         ];
 
+        #Developer pkgs
+        services.udev.packages = with pkgs; [
+            openocd
+            stlink
+        ];
+
         #fix vscode with extensions (gradle)
         programs.nix-ld.enable = true;
         programs.nix-ld.libraries = with pkgs; [
             stdenv.cc.cc
             zlib
+        ];
+
+        environment.plasma6.excludePackages = with pkgs.kdePackages; [
+            kwrite
         ];
 
         programs.firefox.enable = true;

@@ -14,6 +14,11 @@
                     vscjava.vscode-gradle
                     vscjava.vscode-java-dependency
                     vscjava.vscode-spring-initializr
+
+                    ms-vscode.cpptools
+                    ms-vscode.cmake-tools
+
+                    marus25.cortex-debug
               ];
         };   
     };
