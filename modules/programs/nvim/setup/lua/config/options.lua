@@ -4,6 +4,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        -- Save the current cursor position so it doesn't jump around
+        local save_cursor = vim.fn.getpos(".")
+        
+        -- Globally substitute trailing whitespace with nothing silently
+        vim.cmd([[%s/\s\+$//e]])
+        
+        -- Restore the cursor back to exactly where you were editing
+        vim.fn.setpos(".", save_cursor)
+    end,
+})
+
 vim.g.have_nerd_font = true
 
 vim.g.netrw_banner = 0

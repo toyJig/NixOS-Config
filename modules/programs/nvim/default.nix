@@ -5,6 +5,7 @@
         defaultEditor = true;
         viAlias = true;
         vimAlias = true;
+        package = pkgs.neovim-unwrapped;
 
         sideloadInitLua = true;
 
@@ -17,15 +18,41 @@
             render-markdown-nvim
 
             nvim-treesitter.withAllGrammars
+
+            #Color Theme
+            tokyonight-nvim
         ];
 
         extraPackages = with pkgs; [
-            lua-language-server
-            nixd
-            nixfmt-rfc-style
+            # --- Tools & Utilities ---
             ripgrep
             fd
+
+            # --- Nix Development ---
+            nixd
+            nixfmt-rfc-style
+
+            # --- Languages & LSP Servers explicitly used in your lua setup ---
+            lua-language-server # lua_ls
+            basedpyright        # basedpyright (Python)
+            bash-language-server# bashls
+            clang-tools         # clangd (C/C++)
+            vscode-langservers-extracted # cssls & jsonls
+            neocmakelsp
+            rust-analyzer       # rust_analyzer
+            superhtml           # superhtml
+            taplo               # taplo (TOML)
+            vtsls               # vtsls (TypeScript/JavaScript backend)
+            yaml-language-server# yamlls
+            python3Packages.pylatexenc# latex 2 text
+            tree-sitter
         ];
+    };
+
+    # Home Manager's equivalent to environment.variables
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
 
     xdg.configFile."nvim" = {

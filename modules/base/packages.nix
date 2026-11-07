@@ -33,10 +33,6 @@
             zlib
         ];
 
-        environment.plasma6.excludePackages = with pkgs.kdePackages; [
-            kwrite
-        ];
-
         programs.firefox.enable = true;
     };
 }

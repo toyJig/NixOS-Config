@@ -14,7 +14,7 @@
             stateVersion = "26.05";
         };
 
-        # allow noctalia to find system files like kate
+        # allow noctalia to find system programs like kate
         systemd.user.services.noctalia = {
             Service = {
                 Environment = [
@@ -29,6 +29,7 @@
         ] ++ (with self.modules.homeManager; [
             zen-browser
             sober
+            discord
 
             kitty
             starship
@@ -43,7 +44,8 @@
         ]);
 
         home.packages = with pkgs; [
-            nil
+            nixd
+            nixfmt-rfc-style
 
             #zipping
             zip
@@ -69,7 +71,6 @@
 
             #programs
             obs-studio
-            discord
             kicad
             kdePackages.kdenlive
             spotify
