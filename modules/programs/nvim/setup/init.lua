@@ -1,8 +1,8 @@
 require("vim._core.ui2").enable({})
 
 require("config.commands")
-require("config.keymaps")
 require("config.options")
+require("config.keymaps")
 require("config.theme")
 
 require("plugins.lsp")
@@ -11,3 +11,4 @@ require("plugins.netrw")
 require("plugins.orgmode")
 require("plugins.rendermarkdown")
 require("plugins.treesitter")
+

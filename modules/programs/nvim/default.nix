@@ -19,6 +19,10 @@
 
             nvim-treesitter.withAllGrammars
 
+            #Searcher
+            plenary-nvim
+            telescope-nvim
+
             #Color Theme
             tokyonight-nvim
         ];

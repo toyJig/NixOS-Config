@@ -68,7 +68,7 @@
                 };
 
                 nix_shell = {
-                    symbol = "❄️ ";
+                    symbol = "󰜗";
                     style = "bg:#1a1b26 fg:#7aa2f7";
                     format = "[ $symbol ($state) ]($style)";
                 };
