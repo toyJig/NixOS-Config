@@ -20,5 +20,8 @@ MiniSnippets.setup({
     snippets = {
         MiniSnippets.gen_loader.from_lang(),
     },
+    mappings = {
+        expand = '<leader>s'
+    }
 })
 MiniSnippets.start_lsp_server({ match = false })

@@ -13,11 +13,8 @@
     {
       programs.steam.enable = true;
 
-
-      # Note: Home Manager uses home.packages, not environment.systemPackages
       home.packages = [
         (GPUOffloadApp pkgs.steam "steam")
-        (GPUOffloadApp pkgs.heroic "com.heroicgameslauncher.hgl")
       ];
     };
 }
