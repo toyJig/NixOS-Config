@@ -2,7 +2,7 @@
     perSystem = { pkgs, final, system, ... }: {
         overlayAttrs = {
             unstable = import inputs.nixpkgs-unstable {
-                system = pkgs.stdenv.hostPlatform.system;
+                localSystem = pkgs.stdenv.hostPlatform.system;
             };
         };
     };

@@ -8,16 +8,22 @@ input {
 	mouse {
 		accel-profile "flat"
 	}
+
+	keyboard {
+		repeat-delay 180
+		repeat-rate 20
+	}
 }
 
 hotkey-overlay {
-    skip-at-startup
+	skip-at-startup
 }
 
 clipboard {
-    disable-primary
+	disable-primary
 }
 
-screenshot-path "~/Downloads/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-spawn-at-startup "discord"
+debug {
+    // Force Niri to use the iGPU
+    render-drm-device "/dev/dri/renderD128"
+}

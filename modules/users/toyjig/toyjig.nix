@@ -22,7 +22,13 @@
                 ];
             };
         };
+		home.sessionVariables = {
+# Tells wlroots and Niri to completely ignore the dGPU
+			WLR_DRM_DEVICES = "/dev/dri/renderD128";
 
+# Prevents Niri from trying to initialize the secondary node
+			NIRI_RENDER_DRM_DEVICE = "/dev/dri/renderD128";
+		};
         imports = [
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
             inputs.noctalia.homeModules.default
@@ -45,7 +51,7 @@
 
         home.packages = with pkgs; [
             nixd
-            nixfmt-rfc-style
+            nixfmt
 
             #zipping
             zip

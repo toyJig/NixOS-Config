@@ -1,3 +1,5 @@
+screenshot-path "~/Downloads/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
 binds {
     // Noctalia Application Menu
     Mod+Space hotkey-overlay-title="Application Launcher" {

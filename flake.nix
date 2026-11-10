@@ -18,9 +18,12 @@
     import-tree.url = "github:vic/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+		g-helper-linux = {
+			url = "github:utajum/g-helper-linux?dir=nixos";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 

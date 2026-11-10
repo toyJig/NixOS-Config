@@ -8,14 +8,20 @@
                 window_padding_width = 8;
                 background = "#1a1b26";
                 foreground = "#a9b1d6";
-
                 # Optional: Match selection and cursor colors to Tokyo Night specs
                 selection_background = "#28344a";
                 selection_foreground = "#a9b1d6";
                 cursor = "#c0caf5";
-                cursor_trail = 1;
-                cursor_trail_decay = "0.05 0.1";
-                hide_window_decorations = "yes";
+				hide_window_decorations = "yes";
+                # cursor_trail = 30;
+                # cursor_trail_decay = "0.05 0.1";
+				# mouse_hide_wait = 0;
+				# cursor_trail_start_threshold = 6;
+            };
+
+            keybindings = {
+                "ctrl+tab" = "no_op";
+                "ctrl+shift+tab" = "no_op";
             };
         };
     };

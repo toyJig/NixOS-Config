@@ -9,10 +9,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         -- Save the current cursor position so it doesn't jump around
         local save_cursor = vim.fn.getpos(".")
-        
+
         -- Globally substitute trailing whitespace with nothing silently
         vim.cmd([[%s/\s\+$//e]])
-        
+
         -- Restore the cursor back to exactly where you were editing
         vim.fn.setpos(".", save_cursor)
     end,
@@ -47,3 +47,7 @@ vim.o.spell = true;
 vim.o.spelllang = "en_us";
 
 vim.o.winborder = "rounded"
+
+-- Window restore
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "folds" }
+

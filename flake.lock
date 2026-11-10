@@ -40,6 +40,28 @@
         "type": "github"
       }
     },
+    "g-helper-linux": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "nixos",
+        "lastModified": 1794263964,
+        "narHash": "sha256-tknGhEROsACoK49B0I2aOkYcitghUBpSit52zxTXgFw=",
+        "owner": "utajum",
+        "repo": "g-helper-linux",
+        "rev": "0dfb6bffc399fca03e0021c63e207952518eedf3",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nixos",
+        "owner": "utajum",
+        "repo": "g-helper-linux",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -250,6 +272,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "g-helper-linux": "g-helper-linux",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "nirinit": "nirinit",

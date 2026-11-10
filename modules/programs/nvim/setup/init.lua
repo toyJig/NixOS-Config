@@ -8,7 +8,6 @@ require("config.theme")
 require("plugins.lsp")
 require("plugins.mini")
 require("plugins.netrw")
-require("plugins.orgmode")
 require("plugins.rendermarkdown")
 require("plugins.treesitter")
-
+require("plugins.guessindent")

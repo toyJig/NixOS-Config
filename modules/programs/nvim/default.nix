@@ -14,8 +14,8 @@
             mini-nvim
             netrw-nvim
             nvim-lspconfig
-            orgmode
             render-markdown-nvim
+            guess-indent-nvim
 
             nvim-treesitter.withAllGrammars
 
@@ -34,7 +34,7 @@
 
             # --- Nix Development ---
             nixd
-            nixfmt-rfc-style
+            nixfmt
 
             # --- Languages & LSP Servers explicitly used in your lua setup ---
             lua-language-server # lua_ls

@@ -27,10 +27,15 @@
 					petpet.enabled = true;
 					NoF1.enabled = true;
 				};
-
+				hardwareAcceleration = false;
 				disableMinSize = true;
+				arRPC = true;
 				tray = false;
 			};
+		};
+
+		xdg.configFile."vesktop/settings/vencord/settings.json".text = builtins.toJSON {
+			notifyAboutUpdates = false;
 		};
 	};
 }
