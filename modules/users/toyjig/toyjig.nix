@@ -3,7 +3,13 @@
         users.users."toyjig" = {
             isNormalUser = true;
             description = "ME ME ME ME ME";
-            extraGroups = [ "wheel" "networkmanager" "video" ];
+            extraGroups = [
+				"wheel"
+				"networkmanager"
+				"video"
+				"dialout"
+				"uucp"
+			];
             uid = 1000;
         };
     };

@@ -8,7 +8,7 @@
 			loader.efi.canTouchEfiVariables = true;
 			loader.systemd-boot.enable = true;
 			tmp.useTmpfs = true;
-#       kernelPackages = pkgs.linuxPackages_latest; #cannot use with nvidia settings
+			kernelPackages = pkgs.linuxPackages_latest; #cannot use with nvidia settings
 		};
 
 		hardware.bluetooth.enable = true;

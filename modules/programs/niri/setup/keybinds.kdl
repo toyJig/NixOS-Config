@@ -8,8 +8,8 @@ binds {
 
     // Utility
     Mod+Shift+S { screenshot show-pointer=false; }
+	Mod+Shift+Ctrl+S { spawn "noctalia" "msg" "screenshot-annotate"; }
     Mod+Period { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo "; }
-    Mod+M { spawn "noctalia" "msg" "panel-toggle" "launcher" "/math "; }
     Mod+Return { spawn "kitty"; }
     Mod+Y { spawn "dolphin"; }
     Mod+Ctrl+Comma { spawn-sh "noctalia msg settings-toggle"; }

@@ -75,32 +75,32 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bp | bd #<cr>", { desc = "Close buffer, 
 -- Keymap to toggle between the 2 tabs using Ctrl+Tab
 local last_tab = 1
 vim.api.nvim_create_autocmd("TabLeave", {
-	callback = function()
-		last_tab = vim.fn.tabpagenr()
-	end,
+    callback = function()
+	last_tab = vim.fn.tabpagenr()
+    end,
 })
 vim.keymap.set("n", "<C-Tab>", function()
-	-- Check if the last tab is still valid (in case it was closed)
-	if vim.fn.tabpagenr("$") >= last_tab then
-		vim.cmd("tabnext " .. last_tab)
-	else
-		-- Fallback to next tab if tracking fails
-		vim.cmd("tabnext")
-	end
+    -- Check if the last tab is still valid (in case it was closed)
+    if vim.fn.tabpagenr("$") >= last_tab then
+	vim.cmd("tabnext " .. last_tab)
+    else
+	-- Fallback to next tab if tracking fails
+	vim.cmd("tabnext")
+    end
 end, { desc = "Toggle between last two tabs" })
 
 -- Dynamically split vertically or horizontally based on window aspect ratio
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.keymap.set("n", "<C-w>n", function()
-	local width = vim.api.nvim_win_get_width(0)
-	local height = vim.api.nvim_win_get_height(0)
+    local width = vim.api.nvim_win_get_width(0)
+    local height = vim.api.nvim_win_get_height(0)
 
-	if width > (height * 1.2) then
-		vim.cmd("vnew") -- More wide than tall -> vertical split
-	else
-		vim.cmd("new")  -- More tall than wide -> horizontal split
-	end
+    if width > (height * 1.2) then
+	vim.cmd("vnew") -- More wide than tall -> vertical split
+    else
+	vim.cmd("new")  -- More tall than wide -> horizontal split
+    end
 end, { desc = "Smart new split pane based on aspect ratio" })
 
 -- Automatically go to the correct indentation when entering insert mode
@@ -111,13 +111,13 @@ vim.opt.expandtab = false
 vim.cmd("filetype plugin indent on")
 -- Define the smart indent behavior function
 local function smart_insert(key)
-	local line = vim.api.nvim_get_current_line()
-	-- If the line is completely blank or only contains whitespace
-	if line:match("^%s*$") then
-		return '"_cc"'
-	else
-		return key
-	end
+    local line = vim.api.nvim_get_current_line()
+    -- If the line is completely blank or only contains whitespace
+    if line:match("^%s*$") then
+	return '"_cc"'
+    else
+	return key
+    end
 end
 
 -- Safely bind all standard insert mode entry points
@@ -130,10 +130,10 @@ vim.keymap.set('n', 'S', function() return smart_insert('S') end, { expr = true,
 
 -- Toggle netrw on the left side targeting the current file's directory
 vim.keymap.set('n', '<leader>e', function()
-	if vim.bo.filetype == 'netrw' then
-		vim.cmd('Rexplore')
-	else
-		local current_dir = vim.fn.expand('%:p:h')
-		vim.cmd(string.format('Lex %s', current_dir))
-	end
+    if vim.bo.filetype == 'netrw' then
+	vim.cmd('Rexplore')
+    else
+	local current_dir = vim.fn.expand('%:p:h')
+	vim.cmd(string.format('Lex %s', current_dir))
+    end
 end, { desc = 'Toggle netrw sidebar in current file directory' })

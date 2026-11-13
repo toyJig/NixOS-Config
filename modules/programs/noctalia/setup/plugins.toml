@@ -5,7 +5,7 @@ location = "https://github.com/noctalia-dev/official-plugins"
 enabled = true
 
 [plugins]
-enabled = ["noctalia/mpvpaper", "noctalia/wallpaper_depth"]
+enabled = [ "noctalia/mpvpaper" ]
 auto_update = "all"
 
 [plugin_settings."noctalia/mpvpaper"]

@@ -13,13 +13,13 @@ directory_light     = "~/Pictures/Wallpapers"
 directory_dark      = "~/Pictures/Wallpapers"
 
 [backdrop]
-enabled        = false
+enabled        = true
 blur_intensity = 0.5    # 0.0 = no blur, 1.0 = maximum blur
 tint_intensity = 0.3    # 0.0 = no tint, 1.0 = fully opaque tint
 
 
 [widget.clock]
-format = "{:%-I:%M:%S %p}"
+format = "{:%-I:%M:%S %p} {:%A} {:%Y/%m/%d}"
 
 
 [widget.mpvpaper_button] #mpvpaper plugin
@@ -35,6 +35,20 @@ enabled = true
 
 # [widget.tray]
 # hidden = ["discord"]
+
+
+[widget.batteryrate]
+type = "battery"
+display_mode = "none"
+device = "auto"
+hide_when_plugged = true
+label_content = "rate"
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
 
 [bar]
 order = ["main"]                # layer-shell creation order
@@ -86,4 +100,4 @@ capsule_border_width = 1.0          # outline thickness in logical pixels (0-8),
 
 start  = ["launcher", "wallpaper", "mpvpaper_button", "workspaces"]
 center = ["clock"]
-end    = ["media", "tray", "notifications", "network", "bluetooth", "volume", "battery", "control-center", "session"]
+end    = ["tray", "media", "notifications", "network", "bluetooth", "volume", "battery", "batteryrate", "control-center", "session"]
