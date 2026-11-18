@@ -1,26 +1,27 @@
 input {
-	touchpad {
-		tap
-		drag false
-		natural-scroll
-	}
+    touchpad {
+	tap
+	drag false
+	natural-scroll
+	scroll-factor 0.5
+    }
 
-	mouse {
-		accel-profile "flat"
-	}
+    mouse {
+	accel-profile "flat"
+    }
 
-	keyboard {
-		repeat-delay 180
-		repeat-rate 20
-	}
+    keyboard {
+	repeat-delay 180
+	repeat-rate 20
+    }
 }
 
 hotkey-overlay {
-	skip-at-startup
+    skip-at-startup
 }
 
 clipboard {
-	disable-primary
+    disable-primary
 }
 
 debug {

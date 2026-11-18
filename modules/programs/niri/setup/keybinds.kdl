@@ -17,7 +17,7 @@ binds {
 
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Alt+N allow-when-locked=true hotkey-overlay-title="Toggle Night Mode" { spawn "noctalia" "msg" "nightlight-toggle"; }
-    Mod+N hotkey-overlay-title="Toggle Notification Center" { spawn "noctalia" "msg" "control-center-notifications"; }
+    Mod+N hotkey-overlay-title="Toggle Notification Center" { spawn "noctalia" "msg" "panel-open" "control-center" "notifications"; }
     Mod+X hotkey-overlay-title="Toggle Power Menu" { spawn "noctalia" "msg" "session-panel"; }
 
     // Workspace Navigation
