@@ -53,6 +53,8 @@
 
             noctalia
             niri
+
+	    kicad
         ]);
 
         home.packages = with pkgs; [
@@ -83,7 +85,6 @@
 
             #programs
             obs-studio
-            kicad
             kdePackages.kdenlive
             spotify
         ];

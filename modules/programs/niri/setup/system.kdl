@@ -3,7 +3,7 @@ input {
 	tap
 	drag false
 	natural-scroll
-	scroll-factor 0.5
+	scroll-factor 0.65
     }
 
     mouse {
