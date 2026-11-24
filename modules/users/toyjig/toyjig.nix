@@ -1,10 +1,5 @@
 { self, inputs, ... }: {
   flake.modules.nixos.toyjig = {
-
-    imports = [
-      self.modules.nixos.spotx
-    ];
-
     users.users."toyjig" = {
       isNormalUser = true;
       description = "ME ME ME ME ME";
@@ -17,6 +12,10 @@
       ];
       uid = 1000;
     };
+
+    imports = [
+      self.modules.nixos.spotx
+    ];
   };
   flake.modules.homeManager.toyjig = {pkgs, ...}: {
     home = {

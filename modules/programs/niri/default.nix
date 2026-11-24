@@ -13,7 +13,7 @@
       settings = {
 	skip.apps = [
 	  "steam"
-	    "kicad"
+	    "KiCad"
 	    "vesktop"
 	    "noctalia"
 	    "kitty"
