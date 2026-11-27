@@ -16,6 +16,12 @@ input {
     }
 }
 
+gestures {
+    hot-corners {
+	off
+    }
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -25,6 +31,7 @@ clipboard {
 }
 
 debug {
-    // Force Niri to use the iGPU
-    render-drm-device "/dev/dri/renderD128"
+    render-drm-device "/dev/dri/by-path/pci-0000:65:00.0-render"
+    ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
+    ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-card"
 }

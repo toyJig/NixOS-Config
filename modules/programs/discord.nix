@@ -30,7 +30,7 @@
 	hardwareAcceleration = true;
 	disableMinSize = true;
 	arRPC = true;
-	tray = false;
+	tray = true;
       };
     };
   };

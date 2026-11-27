@@ -3,7 +3,7 @@ layout {
 
     focus-ring {
         width 2
-        active-color "#D0F0C0"
+	active-color "rgba(100, 120, 180, 0.5)"
     }
     background-color "transparent"
 }
@@ -27,6 +27,14 @@ window-rule {
 }
 window-rule {
     match app-id=r#"^zen(-beta)?$"#
+    draw-border-with-background false
+}
+window-rule {
+    match app-id="vesktop"
+    draw-border-with-background false
+}
+window-rule {
+    match app-id="discord"
     draw-border-with-background false
 }
 window-rule {

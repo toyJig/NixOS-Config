@@ -53,6 +53,12 @@
       upower.enable = true;
     };
 
+    qt = {
+      enable = true;
+      platformTheme = "kde";
+      style = "breeze";
+    };
+
 # Enable sound with pipewire.
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;

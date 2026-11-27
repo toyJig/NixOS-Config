@@ -15,6 +15,7 @@
 
     imports = [
       self.modules.nixos.spotx
+	self.modules.nixos.claude-cli
     ];
   };
   flake.modules.homeManager.toyjig = {pkgs, ...}: {
@@ -39,15 +40,19 @@
 # Prevents Niri from trying to initialize the secondary node
       NIRI_RENDER_DRM_DEVICE = "/dev/dri/renderD128";
     };
+
     imports = [
       inputs.nix-flatpak.homeManagerModules.nix-flatpak
-      inputs.noctalia.homeModules.default
+	inputs.plasma-manager.homeModules.plasma-manager
+	inputs.noctalia.homeModules.default
     ] ++ (with self.modules.homeManager; [
 	kitty
 	starship
 	nvim
+	dolphin
 
 	vscode
+	claude-cli
 
 	git
 

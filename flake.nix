@@ -24,11 +24,17 @@
       url = "github:utajum/g-helper-linux?dir=nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
 # programs
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    claude-code.url = "github:sadjow/claude-code-nix";
     spotx-nix = {
       url = "github:SpotX-Official/SpotX-Nix";
       inputs.nixpkgs.follows = "nixpkgs";
