@@ -1,12 +1,15 @@
 { ... }: {
   flake.modules.homeManager.dolphin = { pkgs, ... }: {
     home.packages = with pkgs; [
-	kdePackages.dolphin
+      kdePackages.dolphin
 	kdePackages.breeze
 	kdePackages.breeze-icons
 	kdePackages.qqc2-desktop-style
 	kdePackages.plasma-integration
     ];
+    home.sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "kde";
+    };
 
     programs.plasma = {
       enable = true;
@@ -32,6 +35,6 @@
     xdg.configFile."niri-mimeapps.list".text = ''
       [Default Applications]
       inode/directory=org.kde.dolphin.desktop
-    '';
+	'';
   };
-}
+	 }

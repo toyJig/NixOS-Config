@@ -15,6 +15,10 @@
        })
     ];
 
+    environment.shellAliases = {
+      nrs = "cd ~/nixos && sudo nixos-rebuild switch";
+    };
+
     services.ghelper.enable = true;
 
 ###### NVIDIA/AMD GPU CONTROL ENABLING ######
@@ -48,7 +52,7 @@
 # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = [
       "amdgpu"
-      "nvidia"
+	"nvidia"
     ];
 
     hardware.nvidia = {
@@ -105,9 +109,9 @@
 	  allowUnfree = true;
 	};
 	overlays = [self.overlays.default];
-	};
+      };
     }
 
     ];
   };
-}
+		      }

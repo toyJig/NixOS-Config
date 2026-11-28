@@ -1,6 +1,10 @@
 { inputs, ... } : {
   flake.modules.nixos.home-desktop = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [ xwayland-satellite ];
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+      xwayland
+    ];
+
     programs.niri.enable = true;
 #Enable Niri
     services.displayManager.defaultSession = "niri";

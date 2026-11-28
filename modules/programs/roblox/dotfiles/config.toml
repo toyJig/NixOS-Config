@@ -1,0 +1,6 @@
+[studio]
+wineroot = "/etc/profiles/per-user/toyjig"
+
+[studio.env]
+XCURSOR_SIZE = "24"
+XCURSOR_THEME = "breeze_cursors"

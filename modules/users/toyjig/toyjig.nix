@@ -15,7 +15,7 @@
 
     imports = [
       self.modules.nixos.spotx
-	self.modules.nixos.claude-cli
+	self.modules.nixos.claude
     ];
   };
   flake.modules.homeManager.toyjig = {pkgs, ...}: {
@@ -41,6 +41,15 @@
       NIRI_RENDER_DRM_DEVICE = "/dev/dri/renderD128";
     };
 
+    home.pointerCursor = {
+      enable = true;
+      name = "breeze_cursors";
+      package = pkgs.kdePackages.breeze;
+      size = 24;
+      x11.enable = true;
+      gtk.enable = true;
+    };
+
     imports = [
       inputs.nix-flatpak.homeManagerModules.nix-flatpak
 	inputs.plasma-manager.homeModules.plasma-manager
@@ -52,7 +61,7 @@
 	dolphin
 
 	vscode
-	claude-cli
+	claude
 
 	git
 
@@ -63,7 +72,7 @@
 	kicad
 	spotx
 	discord
-	sober
+	roblox
     ]);
 
     home.packages = with pkgs; [
